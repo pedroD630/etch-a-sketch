@@ -24,16 +24,15 @@
   }
 
   #update {
-    position: fixed; /* Fixa o botão em um local específico da tela */
-    bottom: 20px;    /* Distância do botão em relação ao fundo da janela */
-    right: 20px;     /* Distância do botão em relação à direita da janela */
+    position: fixed;
+    top: 20px; 
+    right: 20px;     
     padding: 10px 20px;
     background-color: #007bff;
     color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para destaque */
-    font-size: 16px;
-    z-index: 1000; /* Garante que o botão esteja na frente de outros elementos */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); 
+    z-index: 1000;
   }
