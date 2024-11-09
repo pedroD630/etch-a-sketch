@@ -1,5 +1,13 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    function getRamdomColor() {
+        const r = Math.floor(Math.random() * 256);
+        const g = Math.floor(Math.random() * 256);
+        const b = Math.floor(Math.random() * 256);
+
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+
     function createGrid(n) {
         const container = document.getElementById("grid-container");
 
@@ -21,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
         
         gridItens.forEach((item) => {
             item.addEventListener("mouseover", function() {
-                item.style.backgroundColor = "lightgreen";
+                item.style.backgroundColor = getRamdomColor();
             }
             )
         });
