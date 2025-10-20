@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         return `rgb(${r}, ${g}, ${b})`;
     }
 
-    function createGrid(n) {
+    function createGrid(n, color) {
         const container = document.getElementById("grid-container");
 
         container.innerHTML = "";
@@ -28,10 +28,17 @@ document.addEventListener("DOMContentLoaded", function () {
         const gridItens = document.querySelectorAll(".grid-item");
         
         gridItens.forEach((item) => {
-            item.addEventListener("mouseover", function() {
-                item.style.backgroundColor = getRamdomColor();
+
+            if(color){
+                item.addEventListener("mouseover", function() {
+                    item.style.backgroundColor = color;
+                });
             }
-            )
+            else {
+                item.addEventListener("mouseover", function() {
+                    item.style.backgroundColor = getRamdomColor();
+                });
+            }
         });
     }
 
@@ -40,6 +47,14 @@ document.addEventListener("DOMContentLoaded", function () {
     let btn = document.querySelector("#update");
     btn.addEventListener("click", function() {
         createGrid(prompt("Choose new grid size (Number of blocks)"));
+    });
+
+    let colorBtn = document.querySelector("#select-color");
+    colorBtn.addEventListener("click", function() {
+        const newColor = prompt("Choose a new color (name or hex - random for random)");
+        if (newColor) {
+            createGrid(prompt("Choose new grid size (Number of blocks)"), newColor)
+        }
     });
 
 });
