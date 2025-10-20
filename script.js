@@ -1,5 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
 
+    let selectColor = "random";
+    
     function getRamdomColor() {
         const r = Math.floor(Math.random() * 256);
         const g = Math.floor(Math.random() * 256);
@@ -32,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const gridItens = document.querySelectorAll(".grid-item");
 
         gridItens.forEach((item) => {
-            if(color){
+            if(color != 'random' && color){
                 item.addEventListener("mouseover", function() {
                     item.style.backgroundColor = color;
                 });
@@ -49,12 +51,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let btn = document.querySelector("#update");
     btn.addEventListener("click", function() {
-        createGrid(prompt("Choose new grid size (Number of blocks)"));
+        createGrid(prompt("Choose new grid size (Number of blocks)"), selectColor);
     });
 
     let colorBtn = document.querySelector("#select-color");
     colorBtn.addEventListener("click", function() {
-        changeColor(prompt("Choose a new color (name or hex - random for random)"));
+        changeColor(selectColor = prompt("Choose a new color (name or hex - random for random)"));
     });
 
 });
