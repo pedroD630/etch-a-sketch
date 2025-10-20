@@ -25,10 +25,13 @@ document.addEventListener("DOMContentLoaded", function () {
             container.appendChild(cell);
         }
 
+        changeColor(color);
+    }
+    
+    function changeColor(color) {
         const gridItens = document.querySelectorAll(".grid-item");
-        
-        gridItens.forEach((item) => {
 
+        gridItens.forEach((item) => {
             if(color){
                 item.addEventListener("mouseover", function() {
                     item.style.backgroundColor = color;
@@ -51,10 +54,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let colorBtn = document.querySelector("#select-color");
     colorBtn.addEventListener("click", function() {
-        const newColor = prompt("Choose a new color (name or hex - random for random)");
-        if (newColor) {
-            createGrid(prompt("Choose new grid size (Number of blocks)"), newColor)
-        }
+        changeColor(prompt("Choose a new color (name or hex - random for random)"));
     });
 
 });
